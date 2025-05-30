@@ -17,14 +17,22 @@ A simple command-line tool written in Go that simulates coin flips.
 ## Installation
 
 1. Clone or download this repository
+
+```bash
+git clone https://github.com/terryluciano/flip.git
+```
+
 2. Build the program:
-    ```bash
-    go build -o flip main.go
-    ```
+
+```bash
+go build -o flip main.go
+```
+
 3. (Optional) Add to your PATH:
-    ```bash
-    sudo mv flip /usr/local/bin/
-    ```
+
+```bash
+sudo mv flip /usr/local/bin/
+```
 
 ## Usage
 
