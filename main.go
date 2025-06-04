@@ -6,6 +6,7 @@ import (
 	"math/rand/v2"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func randNum() int {
@@ -87,11 +88,11 @@ func main() {
     fmt.Println()
     fmt.Println("============================")
     fmt.Println()
-    fmt.Printf("Heads: %d, Tails: %d\n", heads, tails)
+    fmt.Printf("%s: %d, %s: %d\n", *headsFlag, heads, *tailsFlag, tails)
     if heads > tails {
-        fmt.Println("HEADS wins!")
+        fmt.Printf("%s wins!\n", strings.ToUpper(*headsFlag))
     } else if tails > heads {
-        fmt.Println("TAILS wins!")
+        fmt.Printf("%s wins!\n", strings.ToUpper(*tailsFlag))
     } else {
         fmt.Println("It's a TIE!")
     }
