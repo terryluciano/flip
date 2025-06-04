@@ -16,7 +16,11 @@ func randNum() int {
 func main() {
 
     help := flag.Bool("help", false, "Display help message")
+    headsFlag := flag.String("heads", "Heads", "String to represent heads")
+    tailsFlag := flag.String("tails", "Tails", "String to represent tails")
     flag.Parse()
+
+    args := flag.Args()
 
     if *help {
         fmt.Println("Usage: flip [number_of_flips]")
@@ -30,9 +34,13 @@ func main() {
         return
     }
 
-    x := 1
+    if *headsFlag == "" || *tailsFlag == "" {
+        fmt.Println("Error: Heads and Tails strings cannot be empty")
+        os.Exit(1)
+    }
 
-    args := flag.Args()
+    x := 1
+    
     if len(args) > 0 {
         num, err := strconv.Atoi(args[0])
         if err != nil {
@@ -59,10 +67,10 @@ func main() {
 
         switch num {
             case 0:
-                fmt.Println("Heads")
+                fmt.Println(*headsFlag)
                 heads++
             case 1:
-                fmt.Println("Tails")
+                fmt.Println(*tailsFlag)
                 tails++
             default:
                 fmt.Println("Error: Invalid number generated")
